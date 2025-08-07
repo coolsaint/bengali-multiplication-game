@@ -38,11 +38,11 @@ const config: GameConfig = {
     // Google TTS settings
     tts: {
         enabled: true, // HTTPS now configured on VPS server - force rebuild
-        supabaseUrl: 'http://34.142.248.160:5000',
+        supabaseUrl: 'https://onekgorom.com',
         supabaseEndpoint: '/tts',
         supabaseAnonKey: '',
         // VPS Server Configuration
-        serverUrl: 'http://34.142.248.160:5000',
+        serverUrl: 'https://onekgorom.com',
         endpoint: '/tts',
         language: 'bn-IN',
         // Using Standard-B voice model for better Bengali number pronunciation
