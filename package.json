@@ -1,0 +1,36 @@
+{
+  "name": "bengali-numbers-game",
+  "version": "1.0.0",
+  "description": "Bengali Multiplication Game with Google TTS integration",
+  "main": "dist/js/main.js",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc && npm run copy-assets",
+    "watch": "tsc --watch",
+    "copy-assets": "mkdir -p dist/css && cp src/css/*.css dist/css/ && cp src/index.html dist/",
+    "dev": "npm run build && npm run serve",
+    "serve": "http-server dist -c-1 -o",
+    "deploy-edge-function": "cd src/supabase && npx supabase functions deploy tts --project-ref YOUR_PROJECT_REF"
+  },
+  "keywords": [
+    "bengali",
+    "multiplication",
+    "education",
+    "game",
+    "tts"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "http-server": "^14.1.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^4.2.3",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

@@ -25,6 +25,10 @@ audio-cache/
 *-key.json
 application_default_credentials.json
 
+# Allow package.json and package-lock.json
+!package.json
+!package-lock.json
+
 # IDE files
 .vscode/
 .idea/
