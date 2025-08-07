@@ -37,13 +37,12 @@ const config: GameConfig = {
     
     // Google TTS settings
     tts: {
-        enabled: true,
-        // Legacy Supabase fields (kept for compatibility)
-        supabaseUrl: 'http://34.142.248.160:5000',
+        enabled: true, // HTTPS now configured on VPS server for compatibility
+        supabaseUrl: 'https://34.142.248.160:5000',
         supabaseEndpoint: '/tts',
         supabaseAnonKey: '',
         // VPS Server Configuration
-        serverUrl: 'http://34.142.248.160:5000',
+        serverUrl: 'https://34.142.248.160:5000',
         endpoint: '/tts',
         language: 'bn-IN',
         // Using Standard-B voice model for better Bengali number pronunciation
