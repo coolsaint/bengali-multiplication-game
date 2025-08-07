@@ -37,7 +37,7 @@ const config: GameConfig = {
     
     // Google TTS settings
     tts: {
-        enabled: true, // HTTPS now configured on VPS server for compatibility
+        enabled: true, // HTTPS now configured on VPS server - force rebuild
         supabaseUrl: 'https://34.142.248.160:5000',
         supabaseEndpoint: '/tts',
         supabaseAnonKey: '',
