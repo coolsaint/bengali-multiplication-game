@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Multiplication Magic - Bengali Numbers 🌟</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎯 গুণের খেলা 🎯</h1>
+        
+        <div id="startScreen" class="start-screen">
+            <div style="font-size: 4em; margin-bottom: 20px;">🦄 🌈 ⭐</div>
+            <h2 style="color: #5f27cd; margin-bottom: 20px;">Welcome to Multiplication Magic!</h2>
+            <p style="font-size: 1.2em; color: #666; margin-bottom: 15px;">
+                বাংলা সংখ্যায় সঠিক উত্তর বেছে নাও! 🎪
+            </p>
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <p style="margin: 5px 0;">📚 <strong>Stage 1:</strong> Numbers Only (১০ Questions)</p>
+                <p style="margin: 5px 0;">🧸 <strong>Stage 2:</strong> Teddy Bears (১০ Questions)</p>
+            </div>
+            <button id="startButton" class="start-btn">
+                Start Game 🚀
+            </button>
+        </div>
+
+        <div id="gameScreen" class="hidden">
+            <div class="score-board">
+                <div class="score-item">
+                    <span>✨ Score</span>
+                    <span class="score-value" id="score">০</span>
+                </div>
+                <div class="score-item">
+                    <span>📝 Question</span>
+                    <span class="score-value" id="questionNumber">১/২০</span>
+                </div>
+                <div class="score-item">
+                    <span>🎯 Streak</span>
+                    <span class="score-value" id="streak">০</span>
+                </div>
+                <div class="score-item">
+                    <span id="soundToggle" title="Sound On" style="cursor: pointer; font-size: 1.3em;">🔊</span>
+                </div>
+            </div>
+
+            <div id="stageDisplay" class="stage-display"></div>
+
+            <div class="question-container">
+                <div class="emoji-decoration" id="topEmoji">🌟</div>
+                <div class="question" id="question"></div>
+                <div class="emoji-decoration" id="bottomEmoji">🎨</div>
+            </div>
+
+            <div class="answers-grid" id="answersGrid"></div>
+            <div id="message" class="message"></div>
+        </div>
+
+        <div id="endScreen" class="end-screen hidden">
+            <div style="font-size: 4em; margin-bottom: 20px;">🏆 🎉 🌟</div>
+            <h2 style="color: #5f27cd;">Game Complete!</h2>
+            <div class="final-score" id="finalScore"></div>
+            <div class="encouragement" id="encouragement"></div>
+            <button id="replayButton" class="restart-btn">
+                Play Again 🔄
+            </button>
+        </div>
+    </div>
+
+    <!-- Import the main script as a module -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
