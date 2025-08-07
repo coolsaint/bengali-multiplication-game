@@ -28,6 +28,7 @@ application_default_credentials.json
 # Allow package.json and package-lock.json
 !package.json
 !package-lock.json
+!tsconfig.json
 
 # IDE files
 .vscode/
