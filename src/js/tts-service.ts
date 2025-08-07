@@ -75,7 +75,9 @@ const ttsService: TTSService = {
     async speakWithGoogleTTS(text: string): Promise<void> {
         console.log(`Speaking Bengali text: "${text}" using Google Cloud TTS`);
         
-        const response = await fetch(`${config.tts.serverUrl}${config.tts.endpoint}`, {
+        // Disable caching - generate fresh audio for every request
+        const timestamp = Date.now();
+        const response = await fetch(`${config.tts.serverUrl}${config.tts.endpoint}?nocache=${timestamp}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -83,7 +85,8 @@ const ttsService: TTSService = {
             body: JSON.stringify({
                 text: text,
                 languageCode: config.tts.language,
-                voice: config.tts.voice
+                voice: config.tts.voice,
+                nocache: timestamp
             })
         });
         
@@ -93,24 +96,28 @@ const ttsService: TTSService = {
         
         // Get audio data as blob
         const audioBlob = await response.blob();
-        const audioUrl = URL.createObjectURL(audioBlob);
+        console.log(`Received audio blob of size: ${audioBlob.size} bytes for text: "${text}"`);
         
-        // Clean up previous URL if exists
-        if (this.audioElement && this.audioElement.src) {
+        // Clean up previous audio URL to prevent caching
+        if (this.audioElement && this.audioElement.src && this.audioElement.src.startsWith('blob:')) {
             URL.revokeObjectURL(this.audioElement.src);
         }
         
-        // Set new audio source and play
+        // Create new audio URL and play
+        const audioUrl = URL.createObjectURL(audioBlob);
         if (this.audioElement) {
             this.audioElement.src = audioUrl;
+            console.log(`Created new audio URL for: "${text}"`);
             
-            // Setup event handlers
-            this.audioElement.onended = () => {
-                URL.revokeObjectURL(audioUrl);
-            };
-            
-            // Play the audio
-            await this.audioElement.play();
+            try {
+                // Force reload the audio element to prevent browser caching
+                this.audioElement.load();
+                await this.audioElement.play();
+                console.log(`Google TTS audio played successfully for: "${text}"`);
+            } catch (error) {
+                console.error('Error playing Google TTS audio:', error);
+                throw error;
+            }
         }
     },
     

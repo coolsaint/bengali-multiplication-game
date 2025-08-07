@@ -46,8 +46,8 @@ const config: GameConfig = {
         serverUrl: 'http://34.142.248.160:5000',
         endpoint: '/tts',
         language: 'bn-IN',
-        // Using the Chirp3-HD voice model for high quality Bengali TTS
-        voice: 'bn-IN-Chirp3-HD-Achernar',
+        // Using Standard-B voice model for better Bengali number pronunciation
+        voice: 'bn-IN-Standard-B',
         // Fallback to Web Speech API if server is unavailable
         fallbackToWebSpeech: true,
     },
